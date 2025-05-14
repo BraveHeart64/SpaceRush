@@ -5,12 +5,13 @@
 #include"Sprite.h"
 #include"Player.h"
 #include"Projectile.h"
-
 #include<vector>
 #include<iostream>
+
 //#include"../../AmoreEngine/AmoreEngine.cpp"
 #define key_seen 1
 #define key_pressed 2
+using namespace std;
 #pragma once
 
 
@@ -19,6 +20,8 @@ class AmoreGame  {
 	private:
 
 		ALLEGRO_FONT* ft;
+		ALLEGRO_FONT* score_ft;
+		int score = 0;
 		bool fire_enabled;
 		Player player_one;
 

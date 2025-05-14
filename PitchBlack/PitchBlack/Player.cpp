@@ -127,12 +127,16 @@ void Player::LoadSpriteImg(){
 void Player::MoveRight( float delta){
 //	std::cout<<"DELTA"<<delta;
 	pos_x+= vel_x *delta;
+	if(pos_x >=470)
+        pos_x-=vel_x * delta;
 
 }
 
 void Player::MoveLeft(float delta){
 	//std::cout<<"DELTA"<<delta;
 	pos_x-= vel_x * delta;
+	if(pos_x <=-14)
+        pos_x+=vel_x * delta;
 
 
 }

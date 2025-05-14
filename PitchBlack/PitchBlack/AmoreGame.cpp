@@ -6,6 +6,7 @@ AmoreGame::AmoreGame(){
 	al_init_font_addon();
 	al_init_ttf_addon();
 	ft = al_load_font("DSChocolade.ttf",32,0);
+	score_ft = al_load_font("DSChocolade.ttf",20,0);
 
 	//memset(key,0,sizeof(key));
 	gamestate = 0;
@@ -13,7 +14,7 @@ AmoreGame::AmoreGame(){
 
 
 
-	if (ft == nullptr){
+	if (ft == nullptr || score_ft == nullptr){
 		//run = false;
 		//render = false;
 		std::cout<<"Font failed to load";
@@ -31,7 +32,7 @@ AmoreGame::AmoreGame(){
 
 AmoreGame::~AmoreGame(){
 	al_destroy_font(ft);
-
+    al_destroy_font(score_ft);
 }
 
 void AmoreGame::SetGameState(int val){
@@ -85,6 +86,13 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 			if( OverLapping(bullet_left,bullet_right,left_ship,right_ship) &&
 			OverLapping(bullet_bottom,bullet_top,ship_bottom,ship_top)){
                 enemy->Destroyed();
+                score+=5;
+                //bullet->
+                //bullet->SetPosY(-10);
+                //bullet->DeactivateBullet();
+                bullet->DeactivateBullet();
+                // someimes disabled bullett fires shortly need to fix this
+
 			return true;
 		 }
 
@@ -98,6 +106,8 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 
 
 int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
+    string data =  to_string(score);
+    char const *datacon = data.c_str();
 
 	switch(gamestate){
 		case 0:	// main menu
@@ -142,10 +152,16 @@ int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
 				}
 
 				p.UpdatePlayerPosition(delta);
-				for(int i =0; i<en.size(); ++i)
+				for(int i =0; i<en.size(); ++i){
 					en[i]->UpdatePlayerPosition(delta);
+                }
+
+                al_draw_text(score_ft,al_map_rgb(255,255,255),50,430,ALLEGRO_ALIGN_CENTER,"Score:");
+                al_draw_text(score_ft,al_map_rgb(255,255,255),100,430,ALLEGRO_ALIGN_CENTER,datacon);
 
 			break;
+
+
 
 		case 3: // main game scene
 

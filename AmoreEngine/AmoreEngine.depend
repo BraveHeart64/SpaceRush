@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1747099590 source:/home/ryan/Desktop/AmoreEngine/AmoreEngine/AmoreEngine.cpp
+	"AmoreEngine.h"
+
+1746919104 /home/ryan/Desktop/AmoreEngine/AmoreEngine/AmoreEngine.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	"../PitchBlack/PitchBlack/AmoreGame.h"
+	"../PitchBlack/PitchBlack/Player.h"
+	"../PitchBlack/PitchBlack/EnemyShip.h"
+	"../PitchBlack/PitchBlack/Timer.h"
+
+1746918986 /home/ryan/Desktop/AmoreEngine/PitchBlack/PitchBlack/AmoreGame.h
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro.h>
+	"EnemyShip.h"
+	"Sprite.h"
+	"Player.h"
+	"Projectile.h"
+	<vector>
+	<iostream>
+
+1747093748 /home/ryan/Desktop/AmoreEngine/PitchBlack/PitchBlack/EnemyShip.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	<ctime>
+	"Timer.h"
+	"random"
+	"Projectile.h"
+	<string>
+	<vector>
+
+1747095712 /home/ryan/Desktop/AmoreEngine/PitchBlack/PitchBlack/Timer.h
+	<iostream>
+	<allegro5/allegro.h>
+
+1746201632 /home/ryan/Desktop/AmoreEngine/PitchBlack/PitchBlack/Projectile.h
+	"Sprite.h"
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+
+1745453010 /home/ryan/Desktop/AmoreEngine/PitchBlack/PitchBlack/Sprite.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+
+1746915862 /home/ryan/Desktop/AmoreEngine/PitchBlack/PitchBlack/Player.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	"Projectile.h"
+	<vector>
+

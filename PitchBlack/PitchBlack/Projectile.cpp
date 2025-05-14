@@ -42,7 +42,7 @@ float Projectile::GetPosX(){
 
 
 void Projectile::DeactivateBullet(){
-
+    this->SetPosY(4000);
 	this->active = false;
 }
 
@@ -76,10 +76,10 @@ void Projectile::UpdateProjectilPosition(float delta){
 	if(pos_y <0){
 		//std::cout<<"TIME TO DIE";
 		//delete this;
-		this->active = false;
-		pos_y = 500;// for testing purpose only
-		// The final game we will use 1000
-		//pos_y = 1000;
+		//this->active = false;
+
+		pos_y = 4000;
+
 	}
 	else{
 
