@@ -1,38 +1,37 @@
-  Ryan Public License (RPL)
-                                                                                                                      Version 1.0 — June 2025
+he Ryan Public License (RPL)
+Version 1.0 — June 2025
 
-                                                                                                                            Preamble
+Preamble
 
-                      This software is created as a learning resource to help others understand how to use Allegro 5 to develop games in C or C++. While many developers rely on modern game engines, this project encourages a return to low-level game programming to help aspiring developers build a deeper understanding of how games work under the hood.
+This software is created as a learning resource to help others understand how to use Allegro 5 to develop games in C or C++. While many developers rely on modern game engines, this project encourages a return to low-level game programming to help aspiring developers build a deeper understanding of how games work under the hood.
 
-            The Ryan Public License allows you to freely study, modify, and build upon the source code for educational or creative purposes. However, it includes a few conditions to ensure that credit is preserved and that the original author’s work is not misrepresented.
+The Ryan Public License allows you to freely study, modify, and build upon the source code for educational or creative purposes. However, it includes a few conditions to ensure that credit is preserved and that the original author’s work is not misrepresented.
 
-                                                                                                          Terms and Conditions
-  
-                                                                                                  1. Permission to Use and Modify
+Terms and Conditions
 
-                                                                                                         You are free to:
-                                                                                             - Use this software for personal, educational, or commercial purposes.
-                                                                                             - Modify, fork, and create derivative works based on this software.
+1. Permission to Use and Modify
+   You are free to:
+   - Use this software for personal, educational, or commercial purposes.
+   - Modify, fork, and create derivative works based on this software.
 
-                                                                                                    2. Attribution Requirement
-                                                                                         -  You must give clear and visible credit to the original author ("Ryan") in any redistributed or derivative work.
-                                                                                        - You may not claim to be the original creator of this project or its codebase.
+2. Attribution Requirement
+   - You must give clear and visible credit to the original author ("Ryan") in any redistributed or derivative work.
+   - You may not claim to be the original creator of this project or its codebase.
 
-                                                                                                3. Design Documents and Add-ons
-                                                                                       - You may not claim ownership of the original design documents or game design concepts.
-                                                                                       - You may include the original design documents as part of your own project, but only as supplemental or reference                                                                                           material, clearly labeled as part of the  original work.
+3. Design Documents and Add-ons
+   - You may not claim ownership of the original design documents or game design concepts.
+   - You may include the original design documents as part of your own project, but only as supplemental or reference material, clearly labeled as part of the original work.
 
-                                                                                                4. Redistribution
-                                                                                       - If you distribute modified versions or derivative works, include a notice stating that changes were made and a                                                                                             link to the original project if available.
-                                                                                        - This license must be included with any distribution.
+4. Redistribution
+   - If you distribute modified versions or derivative works, include a notice stating that changes were made and a link to the original project if available.
+   - This license must be included with any distribution.
 
-                                                                                                5. No Warranty
-                                                                                     This software is provided “as is”, without warranty of any kind. The author is not liable for any damages resulting                                                                                         from its use.
+5. No Warranty
+   This software is provided “as is”, without warranty of any kind. The author is not liable for any damages resulting from its use.
 
-                                                                                              Summary (Plain English)
-                                                                                    - Use it, learn from it, and build cool stuff with it.
-                                                                                    - Just give credit.
-                                                                                    - Don’t claim my work (especially design docs) as your own.
-                                                                                    - Share your improvements if you want, but no pressure.
-                                                                                    - Don't blame me if something breaks.
+Summary (Plain English)
+- Use it, learn from it, and build cool stuff with it.
+- Just give credit.
+- Don’t claim my work (especially design docs) as your own.
+- Share your improvements if you want, but no pressure.
+- Don't blame me if something breaks.
