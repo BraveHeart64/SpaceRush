@@ -68,3 +68,72 @@
 	"Projectile.h"
 	<vector>
 
+1747521897 source:/home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/AmoreEngine/AmoreEngine.cpp
+	"AmoreEngine.h"
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/AmoreEngine/AmoreEngine.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	"../PitchBlack/PitchBlack/AmoreGame.h"
+	"../PitchBlack/PitchBlack/Player.h"
+	"../PitchBlack/PitchBlack/EnemyShip.h"
+	"../PitchBlack/PitchBlack/Timer.h"
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/AmoreGame.h
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro.h>
+	"EnemyShip.h"
+	"Sprite.h"
+	"Player.h"
+	"Projectile.h"
+	<vector>
+	<iostream>
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/EnemyShip.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	<ctime>
+	"Timer.h"
+	"random"
+	"Projectile.h"
+	<string>
+	<vector>
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/Timer.h
+	<iostream>
+	<allegro5/allegro.h>
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/Projectile.h
+	"Sprite.h"
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/Sprite.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+
+1747521897 /home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/Player.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	"Projectile.h"
+	<vector>
+

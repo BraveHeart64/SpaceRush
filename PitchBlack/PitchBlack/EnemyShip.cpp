@@ -89,11 +89,14 @@ float EnemyShip::GetPosY(){
 }
 
 void EnemyShip::Destroyed(){
+	active = false;
+	this->pos_y = -3000;
 	life = 0;
 }
 
 void EnemyShip::Revived(){
 	life = 1;
+	active = true;
 }
 
 void EnemyShip::UpdatePlayerPosition(float delta){

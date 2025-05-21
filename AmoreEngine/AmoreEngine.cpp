@@ -125,15 +125,9 @@ void Window::WindowLoop(){//AmoreGame** game
 			prv_time = current_time;
 
 
-
+			game.BulletCollision(player_one,en_ship);
 			game.GameState(player_one,en_ship,delta);
-			//game.PlayerCollision(player_one,en_ship);
 
-
-			if(game.BulletCollision(player_one,en_ship) == true){
-				std::cout<<"The bullet has hit its target"<<std::endl;
-
-			}
 
 
 		//	std::cout<<"TIMER Convert"<<ALLEGRO_BPM_TO_SECS(al_get_time());

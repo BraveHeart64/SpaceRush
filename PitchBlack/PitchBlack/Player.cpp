@@ -66,9 +66,10 @@ void Player::SetPlayerAmmo(int var){
 }
 
 Projectile* Player::AmmoVectorStorage(int index,bool val){
+	ammo[index]->ActivateBullet();
 	ammo[index]->SetPosX(GetPosX());
 	ammo[index]->SetPosY(GetPosY());
-	ammo[index]->ActivateBullet();
+
 	//ammo[index]->DeactivateBullet();
 
 	fire_enabled = false;
@@ -150,6 +151,7 @@ float Player::GetPosY(){
 }
 
 void Player::FireCannon(int index,float delta){
+//	collision boxes fire as well we need to see these boxes
 
 	ammo[index]->UpdateProjectilPosition(delta);
 

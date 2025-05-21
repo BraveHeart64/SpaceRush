@@ -63,15 +63,18 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 
 	for(auto* bullet :p.AmmoGet()){
 
+
 		float col_width = 10.0;
 		float col_height = 15.0;
 		const float offsetx = (50.0-col_width)/2.0;
 		const float offsety = (50.0-col_height)/2.0;
+		bool checkhit;
 
 		bullet_left =  bullet->GetPosX()+offsetx;
 		bullet_right = bullet_left +col_width; // 50 stand for size later make it a variable it for x size
 		bullet_bottom = bullet->GetPosY()+offsety;
 		bullet_top = bullet_bottom +col_height; //50
+
 
 
 
@@ -87,14 +90,12 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 			OverLapping(bullet_bottom,bullet_top,ship_bottom,ship_top)){
                 enemy->Destroyed();
                 score+=5;
-                //bullet->
-                //bullet->SetPosY(-10);
-                //bullet->DeactivateBullet();
                 bullet->DeactivateBullet();
-                // someimes disabled bullett fires shortly need to fix this
 
-			return true;
+                std::cout<<"The bullet has hit its target"<<std::endl;
+				return true;
 		 }
+
 
 		}
 
@@ -142,13 +143,14 @@ int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
 
 		case 1://  Game Start
 
-
+				std::cout<<p.GetPlayerAmmo();
 				if(p.GetPlayerAmmo() >= 5){
 						p.SetPlayerAmmo(0);
 				}
 
 				for(int i = 0; i<p.AmmoVectoreSize(); ++i){
 						p.FireCannon(i,delta);
+
 				}
 
 				p.UpdatePlayerPosition(delta);

@@ -4,9 +4,10 @@
 
 Projectile::Projectile(){
 	mainbmp = al_load_bitmap("projectile.png");
-	pos_x = 2000;
-	pos_y = 2000;
-	vel_y = 300;
+	pos_x = 4000;
+	pos_y = 4000;
+	vel_y = 300; //300
+	al_init_primitives_addon();
 }
 
 
@@ -42,13 +43,15 @@ float Projectile::GetPosX(){
 
 
 void Projectile::DeactivateBullet(){
-    this->SetPosY(4000);
+    this->SetPosY(4000);//4000
+    this->SetPosY(4000);//4000
+    std::cout<<"Disable Bullet: ";
 	this->active = false;
 }
 
 void Projectile::ActivateBullet(){
-
 	this->active = true;
+
 }
 
 bool Projectile::GetActive(){
@@ -68,23 +71,26 @@ bool Projectile::CheckCollision(){
 }
 
 void Projectile::UpdateProjectilPosition(float delta){
+	//std::cout<<"Bullet pos_y:"<<pos_y;
 
 	if(this->active == true){
-		pos_y -= vel_y * delta;
-	}
-
-	if(pos_y <0){
-		//std::cout<<"TIME TO DIE";
-		//delete this;
-		//this->active = false;
-
-		pos_y = 4000;
+		this->pos_y -= this->vel_y * delta;
+		al_draw_bitmap(sub_proj_img,GetPosX(),GetPosY()-25,1);
 
 	}
-	else{
 
-		al_draw_bitmap(sub_proj_img,pos_x,pos_y-25,1);
+	 else if(pos_y <0){
+
+		this->active = false;
+		SetPosY(4000);
+
 	}
+
+
+	//else{
+
+	//	al_draw_bitmap(sub_proj_img,pos_x,pos_y-25,1);
+	//}
 
 
 
