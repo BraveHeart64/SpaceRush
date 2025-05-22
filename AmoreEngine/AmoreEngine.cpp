@@ -126,6 +126,7 @@ void Window::WindowLoop(){//AmoreGame** game
 
 
 			game.BulletCollision(player_one,en_ship);
+			game.PlayerBodyCollision(player_one,en_ship);
 			game.GameState(player_one,en_ship,delta);
 
 
@@ -166,7 +167,6 @@ void Window::KeyBoard(){
 						else if(key[ALLEGRO_KEY_LEFT]){
 							//std::cout<<"I PRESSED LEFT";
 							player_one.MoveLeft(delta);
-
 						}
 
 				}
@@ -200,7 +200,6 @@ void Window::KeyBoard(){
 						//std::cout<<"Player AMMO is suppposed to be ZERO: "<<player_one.GetPlayerAmmo()<<std::endl;
 					}
 
-					//std::cout<<"Player AMMO: "<<player_one.GetPlayerAmmo()<<std::endl;
 
 				}
 

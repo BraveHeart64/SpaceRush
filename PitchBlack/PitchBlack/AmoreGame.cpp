@@ -39,7 +39,53 @@ void AmoreGame::SetGameState(int val){
 	gamestate = val;
 
 }
-bool AmoreGame::PlayerCollision(Player p, std::vector<EnemyShip*> en){
+bool AmoreGame::PlayerBodyCollision(Player& p, std::vector<EnemyShip*>& en){
+
+	float ship_left;
+	float ship_right;
+	float ship_bottom;
+	float ship_top;
+
+	float player_left;
+	float player_right;
+	float player_bottom;
+	float player_top;
+
+	for(auto* en_ship: en){
+		float col_width = 10.0;
+		float col_height = 15.0;
+		const float offsetx = (50.0-col_width)/2.0;
+		const float offsety = (50.0-col_height)/2.0;
+
+
+		ship_left =  en_ship->GetPosX()+offsetx;
+		ship_right = ship_left +col_width; // 50 stand for size later make it a variable it for x size
+		ship_bottom = en_ship->GetPosY()+offsety;
+		ship_top = ship_bottom +col_height; //50
+
+
+		player_left = p.GetPosX()+offsetx;
+		player_right  = player_left+col_width;
+		player_bottom = p.GetPosY()+offsety;
+		player_top = player_bottom+col_height;
+
+		if(p.GetVulnerability() == true){
+			if( OverLapping(player_left,player_right,ship_left,ship_right) &&
+				OverLapping(player_bottom,player_top,ship_bottom,ship_top)){
+				//en_ship->Destroyed();
+               // enemy->Destroyed();
+                //score+=5;
+                //bullet->DeactivateBullet();
+
+                std::cout<<"Kamikazi Attack!"<<std::endl;
+                p.Damage();
+                p.SetVulnerability(false);
+				return true;
+			}
+		}
+
+
+	}
 
 }
 
@@ -52,11 +98,11 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 
 	float bullet_left;
 	float bullet_right;
-	float left_ship;
-	float right_ship;
-
 	float bullet_bottom;
 	float bullet_top;
+
+	float left_ship;
+	float right_ship;
 	float ship_bottom;
 	float ship_top;
 
@@ -68,7 +114,7 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 		float col_height = 15.0;
 		const float offsetx = (50.0-col_width)/2.0;
 		const float offsety = (50.0-col_height)/2.0;
-		bool checkhit;
+		//bool checkhit;
 
 		bullet_left =  bullet->GetPosX()+offsetx;
 		bullet_right = bullet_left +col_width; // 50 stand for size later make it a variable it for x size

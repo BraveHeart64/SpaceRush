@@ -35,7 +35,7 @@ class AmoreGame  {
 
 		int gamestate;
 		int GameState(Player p,std::vector<EnemyShip*> en ,float delta);
-		bool PlayerCollision(Player p, std::vector<EnemyShip*> en);
+		bool PlayerBodyCollision(Player& p, std::vector<EnemyShip*>& en);
 		bool BulletCollision(Player& p, std::vector<EnemyShip*>& en);
 		bool OverLapping(float min_one,float max_one, float min_two, float max_two );
 

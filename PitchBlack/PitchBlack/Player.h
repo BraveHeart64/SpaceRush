@@ -4,6 +4,7 @@
 #include<allegro5/allegro_image.h>
 #include<allegro5/allegro_color.h>
 #include"Projectile.h"
+#include"Timer.h"
 #include<vector>
 
 #pragma once
@@ -14,11 +15,12 @@ class Player : public Sprite{
 
 	private:
 
-		int playerammo;
+		int playerammo,life;
 		char* id;
 		float vel_x, vel_y;
 		float pos_x,pos_y,pos_z;
 		float left,right,bottom,top;
+		bool venerable;
 
 
 
@@ -26,6 +28,7 @@ class Player : public Sprite{
 
 		bool fire_enabled = false;
 		ALLEGRO_TIMER* cooldown_clock;
+		Timer* vulnerability_clock = new Timer(0.75,false); // this clock is diabled until you get hit.
 		std::vector<Projectile*> ammo;
 
 		ALLEGRO_BITMAP* sprite_sheet;
@@ -40,37 +43,46 @@ class Player : public Sprite{
 
 	public:
 
-		void LoadSpriteImg();
-		void AmmoCreation();
-		bool CheckCollision();
-		std::vector<Projectile*>  AmmoGet();
-
-		void Test();
-
-		bool GetFireStatus();
-		void ResetFireStatus(int index,bool var);
-		void DeactivateBullet();
-		void ActivateBullet();
-		void AddPlayerAmmo();
+		void	LoadSpriteImg();
+		void	AmmoCreation();
+		bool	CheckCollision();
+		Timer*	GetVulClock();
+		Timer*	SetVulClock();
 
 
-		void SetAmmoX(int index,int num);
-		void SetAmmoY(int index, int num);
+		void 	Test();
 
-		float AmmoGetPositionY(int index);
-		int GetPlayerAmmo();
-		void SetPlayerAmmo(int var);
+		bool	GetFireStatus();
+		void	ResetFireStatus(int index,bool var);
+		void	DeactivateBullet();
+		void	ActivateBullet();
+		void	AddPlayerAmmo();
+		void	Damage();
+		void	SetDamage(int val);
+		void	SetVulnerability(bool val);
+		bool	GetVulnerability();
+
+		void 	SetAmmoX(int index,int num);
+		void	SetAmmoY(int index, int num);
+
+		float	AmmoGetPositionY(int index);
+		int		GetPlayerAmmo();
+		void	SetPlayerAmmo(int var);
+
+
+
+		int		AmmoVectoreSize();
+		void	UpdateProjectile(float delta);
+
+		void 	MoveRight(float delta);
+		void 	MoveLeft(float delta);
+		float	GetPosX();
+		float	GetPosY();
+		void	UpdatePlayerPosition(float delta);
+
+		void	FireCannon(int index,float delta);
 		Projectile* AmmoVectorStorage(int index,bool val);
-		int AmmoVectoreSize();
-		void UpdateProjectile(float delta);
-
-		void MoveRight(float delta);
-		void MoveLeft(float delta);
-		float GetPosX();
-		float GetPosY();
-		void UpdatePlayerPosition(float delta);
-
-		void FireCannon(int index,float delta);
+		std::vector<Projectile*>  AmmoGet();
 
 		Player();
 		~Player();

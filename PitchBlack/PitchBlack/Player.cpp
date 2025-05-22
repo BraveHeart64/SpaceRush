@@ -13,8 +13,10 @@ Player::Player(){
 	vel_y = 140;
 
 	LoadSpriteImg();
+	life = 3;
 	playerammo = 0;//-1
 	fire_enabled = true;
+	venerable = true;
 
 
 	for(int i = 0; i<6; ++i){
@@ -51,7 +53,21 @@ void Player::Test(){
 //	al_rest(1);
 }
 
+void Player::SetDamage(int val){
+	this->life = val;
+}
 
+void Player::SetVulnerability(bool val){
+	venerable = val;
+}
+
+bool Player::GetVulnerability(){
+	return venerable;
+}
+
+void Player::Damage(){
+	life-=1;
+}
 
 void Player::AddPlayerAmmo(){
 	playerammo+= 1;
