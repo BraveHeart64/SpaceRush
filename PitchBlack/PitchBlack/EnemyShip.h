@@ -41,6 +41,7 @@ class EnemyShip : Sprite{
 		void ActivateShip(bool val);
 		void Destroyed();
 		void Revived();
+		void ResetPosition();
 		void StartActiveClock();
 		void InitActiveClock();
 		void LoadSpriteImg(int img_x, int img_y);

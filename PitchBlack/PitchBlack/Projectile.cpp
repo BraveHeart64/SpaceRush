@@ -45,7 +45,7 @@ float Projectile::GetPosX(){
 void Projectile::DeactivateBullet(){
     this->SetPosY(4000);//4000
     this->SetPosY(4000);//4000
-    std::cout<<"Disable Bullet: ";
+  //  std::cout<<"Disable Bullet: ";
 	this->active = false;
 }
 

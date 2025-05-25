@@ -107,6 +107,15 @@ void Window::WindowLoop(){//AmoreGame** game
             transition_clock->PauseClock();
 		}
 
+		if(game.gamestate == 7){
+
+				if(key[ALLEGRO_KEY_DOWN]){
+					window_state == 1;
+				}
+
+
+		}
+
 		al_wait_for_event(que,&eve);
 
 		KeyBoard();
@@ -134,7 +143,7 @@ void Window::WindowLoop(){//AmoreGame** game
 		//	std::cout<<"TIMER Convert"<<ALLEGRO_BPM_TO_SECS(al_get_time());
 
 
-			std::cout<<std::endl;
+			//std::cout<<std::endl;
 			//en.UpdatePlayerPosition(delta);
 			al_flip_display();
 			render = false;
@@ -220,6 +229,9 @@ void Window::KeyBoard(){
 				key[eve.keyboard.keycode] = key_seen | key_pressed;
 				if (window_state == 0){
 					window_state = 1;
+				}
+				else if(window_state == 7){
+					window_state = 0;
 				}
 
 

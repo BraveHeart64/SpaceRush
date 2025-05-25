@@ -83,6 +83,12 @@ bool AmoreGame::PlayerBodyCollision(Player& p, std::vector<EnemyShip*>& en){
 				return true;
 			}
 		}
+		else{
+			p.VulClockTick();
+				if(p.GetLife() <= 0){
+					gamestate = 7;
+				}
+		}
 
 
 	}
@@ -138,7 +144,7 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
                 score+=5;
                 bullet->DeactivateBullet();
 
-                std::cout<<"The bullet has hit its target"<<std::endl;
+             //   std::cout<<"The bullet has hit its target"<<std::endl;
 				return true;
 		 }
 
@@ -189,7 +195,7 @@ int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
 
 		case 1://  Game Start
 
-				std::cout<<p.GetPlayerAmmo();
+				//std::cout<<p.GetPlayerAmmo();
 				if(p.GetPlayerAmmo() >= 5){
 						p.SetPlayerAmmo(0);
 				}
@@ -228,6 +234,33 @@ int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
 			break;
 
 		case 7: // show game over screen
+				al_draw_text(ft,al_map_rgb(255,255,255),245,0,ALLEGRO_ALIGN_CENTER,"Game Over");
+				al_draw_text(ft,al_map_rgb(255,255,255),245,50,ALLEGRO_ALIGN_CENTER,"Press enter to Play Again!");
+				p.RestTheGame();
+
+
+				en[0]->ResetPosition();
+				en[1]->ResetPosition();
+				en[1]->SetPosX(50);
+				en[2]->ResetPosition();
+				en[2]->SetPosX(100);
+				en[3]->ResetPosition();
+				en[3]->SetPosX(150);
+				en[4]->ResetPosition();
+				en[4]->SetPosX(200);
+				en[5]->ResetPosition();
+				en[5]->SetPosX(250);
+				en[6]->ResetPosition();
+				en[6]->SetPosX(300);
+				en[7]->ResetPosition();
+				en[7]->SetPosX(350);
+				en[8]->ResetPosition();
+				en[8]->SetPosX(400);
+				en[9]->ResetPosition();
+				score=0;
+
+
+
 			break;
 
 	}

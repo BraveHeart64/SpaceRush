@@ -30,7 +30,20 @@ EnemyShip::~EnemyShip(){
 };
 
 void EnemyShip::TestClock(){
-	std::cout<< "test";
+//	std::cout<< "test";
+
+}
+
+void EnemyShip::ResetPosition(){
+	pos_x = 0;
+	pos_y = 0;
+
+	life = 1;
+	active = true;
+	reset_clock = false;
+	//srand((float)time(0));
+	//
+	speed = (rand()%4)+1;
 
 }
 
@@ -110,11 +123,11 @@ void EnemyShip::UpdatePlayerPosition(float delta){
 		active = false;
 		if(reset_clock == false){
             active_clock->ResetClock();
-            std::cout<<"Clock is reset";
-            std::cout<<"\n";
+        //    std::cout<<"Clock is reset";
+          //  std::cout<<"\n";
             reset_clock = true;
             active_clock->StartClock();
-            std::cout<<active_clock->GetCurrentTime();
+         //   std::cout<<active_clock->GetCurrentTime();
         }
 
         if(active_clock->GetMin() >= 2 && active_clock->GetSec() >= .5){
@@ -123,7 +136,7 @@ void EnemyShip::UpdatePlayerPosition(float delta){
 			pos_y = -105;
 			speed = (rand()%4)+1;
 			pos_x = (rand()%473)+1;
-            std::cout<<"TEST";
+          //  std::cout<<"TEST";
 
 
 
@@ -133,7 +146,7 @@ void EnemyShip::UpdatePlayerPosition(float delta){
             al_draw_bitmap(enemy_img,-3000,-3000,16);
         }
         active_clock->GetCurrentTime();
-        std::cout<<active_clock->GetCurrentTime();
+       // std::cout<<active_clock->GetCurrentTime();
 
 	}
 

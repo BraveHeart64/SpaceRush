@@ -17,7 +17,7 @@ Timer::Timer(float fps, bool clock_type){
 	}
 	else if(clock_type == false){
 		gm_timer = al_create_timer(fps);
-		std::cout<<"FPS: "<<fps;
+	//	std::cout<<"FPS: "<<fps;
 	}
 
 }

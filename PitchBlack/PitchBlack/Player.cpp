@@ -44,6 +44,28 @@ Player::~Player(){
 
 
 }
+void Player::RestTheGame(){
+
+	pos_x = 250;
+	pos_y = 450;
+	vel_x = 140;
+	vel_y = 140;
+	life = 3;
+
+
+	playerammo = 0;//-1
+	fire_enabled = true;
+	venerable = true;
+	ammo[0]->SetPosY(9000);
+	ammo[1]->SetPosY(9000);
+	ammo[2]->SetPosY(9000);
+	ammo[3]->SetPosY(9000);
+	ammo[4]->SetPosY(9000);
+	ammo[5]->SetPosY(9000);
+
+
+
+}
 
 void Player::Test(){
 
@@ -56,8 +78,12 @@ void Player::Test(){
 void Player::SetDamage(int val){
 	this->life = val;
 }
+int Player::GetLife(){
+	return life;
+}
 
 void Player::SetVulnerability(bool val){
+
 	venerable = val;
 }
 
@@ -65,8 +91,22 @@ bool Player::GetVulnerability(){
 	return venerable;
 }
 
+void Player::VulClockTick(){
+
+	double tick = vulnerability_clock->GetCurrentTime();
+	if(tick >= 15){
+		vulnerability_clock->ResetClock();
+		vulnerability_clock->PauseClock();
+		venerable = true;
+	}
+	//std::cout<<"Tick: "<<tick;
+}
+
 void Player::Damage(){
 	life-=1;
+	vulnerability_clock->StartClock();
+	std::cout<<"\n";
+	std::cout<<"Life: "<<life;
 }
 
 void Player::AddPlayerAmmo(){
@@ -179,7 +219,6 @@ void KillBullet(){
 }
 
 bool Player::CheckCollision(){
-
 
 	return true;
 }

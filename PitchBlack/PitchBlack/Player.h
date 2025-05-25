@@ -15,7 +15,8 @@ class Player : public Sprite{
 
 	private:
 
-		int playerammo,life;
+		int playerammo;
+		int  life;
 		char* id;
 		float vel_x, vel_y;
 		float pos_x,pos_y,pos_z;
@@ -48,7 +49,7 @@ class Player : public Sprite{
 		bool	CheckCollision();
 		Timer*	GetVulClock();
 		Timer*	SetVulClock();
-
+		void 	VulClockTick();
 
 		void 	Test();
 
@@ -61,6 +62,7 @@ class Player : public Sprite{
 		void	SetDamage(int val);
 		void	SetVulnerability(bool val);
 		bool	GetVulnerability();
+		void	RestTheGame();
 
 		void 	SetAmmoX(int index,int num);
 		void	SetAmmoY(int index, int num);
@@ -72,6 +74,7 @@ class Player : public Sprite{
 
 
 		int		AmmoVectoreSize();
+		int		GetLife();
 		void	UpdateProjectile(float delta);
 
 		void 	MoveRight(float delta);
