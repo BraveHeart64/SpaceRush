@@ -107,14 +107,7 @@ void Window::WindowLoop(){//AmoreGame** game
             transition_clock->PauseClock();
 		}
 
-		if(game.gamestate == 7){
 
-				if(key[ALLEGRO_KEY_DOWN]){
-					window_state == 1;
-				}
-
-
-		}
 
 		al_wait_for_event(que,&eve);
 
@@ -178,6 +171,28 @@ void Window::KeyBoard(){
 							player_one.MoveLeft(delta);
 						}
 
+						else if(key[ALLEGRO_KEY_Q]){
+							run = false;
+						}
+
+						if(game.gamestate == 7){
+							player_one.SetDamage(3);
+							std::cout<<player_one.GetLife();
+							window_state = game.gamestate;
+
+							case ALLEGRO_KEY_ENTER:
+								//game.gamestate = 0;
+								//window_state = game.gamestate;
+								break;
+
+							//if(key[ALLEGRO_KEY_DOWN]){
+							//	window_state == 1;
+
+							//}
+
+
+						}
+
 				}
 
 
@@ -231,11 +246,11 @@ void Window::KeyBoard(){
 					window_state = 1;
 				}
 				else if(window_state == 7){
-					window_state = 0;
+					game.gamestate = 0;
+					window_state = game.gamestate;
 				}
 
 
-				//player_one.Test();
 			break;
 
 
