@@ -5,8 +5,20 @@ AmoreGame::AmoreGame(){
 	al_init();
 	al_init_font_addon();
 	al_init_ttf_addon();
+	al_install_audio();
+	al_init_acodec_addon();
+	al_reserve_samples(1);
+
+
+
 	ft = al_load_font("DSChocolade.ttf",32,0);
 	score_ft = al_load_font("DSChocolade.ttf",20,0);
+
+
+
+
+
+
 
 	//memset(key,0,sizeof(key));
 	gamestate = 0;
@@ -24,6 +36,18 @@ AmoreGame::AmoreGame(){
 		std::cout<<"Font has loaded into memory";
 	}
 
+	main_song = al_load_sample("main.ogg");
+	if(main_song == nullptr){
+		std::cout<<"Song failed to load";
+
+	}
+	else{
+
+		al_play_sample(main_song,1.0,0.0,1.0,ALLEGRO_PLAYMODE_LOOP,NULL);
+	}
+
+
+
 	gamestate = 0;
 
 
@@ -33,6 +57,7 @@ AmoreGame::AmoreGame(){
 AmoreGame::~AmoreGame(){
 	al_destroy_font(ft);
     al_destroy_font(score_ft);
+    al_destroy_sample(main_song);
 }
 
 void AmoreGame::SetGameState(int val){
@@ -184,6 +209,7 @@ int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
 
 				*/
 
+				//al_play_sample(main_song, 1.0, 0.0, 1.0, ALLEGRO_PLAYMODE_LOOP, NULL);
 
 			break;
 

@@ -1,6 +1,8 @@
 #include<allegro5/allegro_font.h>
 #include<allegro5/allegro_ttf.h>
 #include<allegro5/allegro.h>
+#include<allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 #include"EnemyShip.h"
 #include"Sprite.h"
 #include"Player.h"
@@ -21,6 +23,7 @@ class AmoreGame  {
 
 		ALLEGRO_FONT* ft;
 		ALLEGRO_FONT* score_ft;
+		ALLEGRO_SAMPLE* main_song =  nullptr;
 		int score = 0;
 		bool fire_enabled;
 		Player player_one;

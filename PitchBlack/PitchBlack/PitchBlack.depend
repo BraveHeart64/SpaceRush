@@ -184,7 +184,7 @@
 1747521897 source:/home/ryan/LinksToApps/Apps/GameProjects/CustomeEngines/AmoreEngine/PitchBlack/PitchBlack/Timer.cpp
 	"Timer.h"
 
-1748298479 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/AmoreEngine/AmoreEngine.cpp
+1748354645 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/AmoreEngine/AmoreEngine.cpp
 	"AmoreEngine.h"
 
 1748145773 /home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/AmoreEngine/AmoreEngine.h
@@ -201,10 +201,12 @@
 	"../PitchBlack/PitchBlack/EnemyShip.h"
 	"../PitchBlack/PitchBlack/Timer.h"
 
-1748145813 /home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/AmoreGame.h
+1748353715 /home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/AmoreGame.h
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
 	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
 	"EnemyShip.h"
 	"Sprite.h"
 	"Player.h"
@@ -254,13 +256,13 @@
 	"Timer.h"
 	<vector>
 
-1748295631 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/AmoreGame.cpp
+1748354957 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/AmoreGame.cpp
 	"AmoreGame.h"
 
 1748143523 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/EnemyShip.cpp
 	"EnemyShip.h"
 
-1747671675 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/main.cpp
+1748351822 source:/home/ryan/LinksToApps/GameProjectDir/ALLEGRO5/AmoreEngine/PitchBlack/PitchBlack/main.cpp
 	<iostream>
 	"../../AmoreEngine/AmoreEngine.h"
 	"AmoreGame.h"

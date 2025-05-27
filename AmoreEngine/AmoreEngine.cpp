@@ -10,6 +10,10 @@ Window::Window(char* t){
 	al_init_image_addon();
 	al_init_font_addon();
 	al_init_ttf_addon();
+	al_install_audio();
+	al_init_acodec_addon();
+	al_reserve_samples(1);
+
 
 	window_state = 0;
 	height = 500;
@@ -180,10 +184,10 @@ void Window::KeyBoard(){
 							std::cout<<player_one.GetLife();
 							window_state = game.gamestate;
 
-							case ALLEGRO_KEY_ENTER:
+						//	case ALLEGRO_KEY_ENTER:
 								//game.gamestate = 0;
 								//window_state = game.gamestate;
-								break;
+						//		break;
 
 							//if(key[ALLEGRO_KEY_DOWN]){
 							//	window_state == 1;
