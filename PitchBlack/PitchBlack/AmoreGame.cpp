@@ -7,24 +7,15 @@ AmoreGame::AmoreGame(){
 	al_init_ttf_addon();
 	al_install_audio();
 	al_init_acodec_addon();
-	al_reserve_samples(1);
-
-
+	al_reserve_samples(16);
 
 	ft = al_load_font("DSChocolade.ttf",32,0);
 	score_ft = al_load_font("DSChocolade.ttf",20,0);
 
-
-
-
-
-
-
-	//memset(key,0,sizeof(key));
-	gamestate = 0;
-	//player_one.LoadSpriteImg();
-
-
+	main_song = al_load_sample("main.ogg");
+	laser = al_load_sample("laser.ogg");
+	en_beam = al_load_sample("cannon.ogg");
+	explosion = al_load_sample("explosion.ogg");
 
 	if (ft == nullptr || score_ft == nullptr){
 		//run = false;
@@ -33,17 +24,27 @@ AmoreGame::AmoreGame(){
 		this->~AmoreGame();
 	}
 	else{
-		std::cout<<"Font has loaded into memory";
+		std::cout<<"Font has loaded into memory"<<endl;
 	}
 
-	main_song = al_load_sample("main.ogg");
+
 	if(main_song == nullptr){
-		std::cout<<"Song failed to load";
+		std::cout<<"Song failed to load"<<endl;
 
 	}
 	else{
 
 		al_play_sample(main_song,1.0,0.0,1.0,ALLEGRO_PLAYMODE_LOOP,NULL);
+	}
+
+
+
+
+	if(explosion == nullptr){
+		std::cout<<"Explosion Sound has failed to load"<<endl;
+	}
+	else{
+		std::cout<<"Explosion Sound has been loaded"<<endl;
 	}
 
 
@@ -58,6 +59,10 @@ AmoreGame::~AmoreGame(){
 	al_destroy_font(ft);
     al_destroy_font(score_ft);
     al_destroy_sample(main_song);
+    al_destroy_sample(laser);
+    al_destroy_sample(en_beam);
+    al_destroy_sample(explosion);
+
 }
 
 void AmoreGame::SetGameState(int val){
@@ -104,7 +109,10 @@ bool AmoreGame::PlayerBodyCollision(Player& p, std::vector<EnemyShip*>& en){
 
                 std::cout<<"Kamikazi Attack!"<<std::endl;
                 p.Damage();
+                en_ship->Destroyed();
                 p.SetVulnerability(false);
+                PlayExplosion();
+
 				return true;
 			}
 		}
@@ -166,6 +174,7 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 			if( OverLapping(bullet_left,bullet_right,left_ship,right_ship) &&
 			OverLapping(bullet_bottom,bullet_top,ship_bottom,ship_top)){
                 enemy->Destroyed();
+                PlayExplosion();
                 score+=5;
                 bullet->DeactivateBullet();
 
@@ -182,6 +191,36 @@ bool AmoreGame::BulletCollision(Player& p, std::vector<EnemyShip*>& en){
 
 }
 
+void AmoreGame::PlayPlayerLaser(){
+
+	//laser = al_load_sample("laser.ogg");
+	if(laser  == nullptr){
+		std::cout<<"Laser Sound has failed to load"<<endl;
+		return;
+	}
+	else{
+		std::cout<<"The Laser sound has been loaded"<<endl;
+		al_play_sample(laser,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+
+	}
+
+}
+
+void AmoreGame::PlayEnemyLaster(){
+
+	if(en_beam  == nullptr){
+		std::cout<<"Enemy Laser Sound has failed to load"<<endl;
+		return;
+	}
+	else{
+		al_play_sample(en_beam,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+	}
+
+}
+
+void AmoreGame::PlayExplosion(){
+	al_play_sample(explosion,1.0,0.0,1.0,ALLEGRO_PLAYMODE_ONCE,NULL);
+}
 
 int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
     string data =  to_string(score);

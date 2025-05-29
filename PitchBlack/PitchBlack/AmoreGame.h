@@ -24,6 +24,9 @@ class AmoreGame  {
 		ALLEGRO_FONT* ft;
 		ALLEGRO_FONT* score_ft;
 		ALLEGRO_SAMPLE* main_song =  nullptr;
+		ALLEGRO_SAMPLE* laser = nullptr;
+		ALLEGRO_SAMPLE* en_beam = nullptr;
+		ALLEGRO_SAMPLE* explosion = nullptr;
 		int score = 0;
 		bool fire_enabled;
 		Player player_one;
@@ -36,11 +39,14 @@ class AmoreGame  {
 
 	public:
 
-		int gamestate;
-		int GameState(Player p,std::vector<EnemyShip*> en ,float delta);
+		int	 gamestate;
+		int	 GameState(Player p,std::vector<EnemyShip*> en ,float delta);
 		bool PlayerBodyCollision(Player& p, std::vector<EnemyShip*>& en);
 		bool BulletCollision(Player& p, std::vector<EnemyShip*>& en);
 		bool OverLapping(float min_one,float max_one, float min_two, float max_two );
+		void PlayPlayerLaser();
+		void PlayEnemyLaster();
+		void PlayExplosion();
 
 		void SetGameState(int val);
 		ALLEGRO_TIMER* CoolOff();

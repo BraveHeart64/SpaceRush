@@ -12,7 +12,7 @@ Window::Window(char* t){
 	al_init_ttf_addon();
 	al_install_audio();
 	al_init_acodec_addon();
-	al_reserve_samples(1);
+	al_reserve_samples(16);
 
 
 	window_state = 0;
@@ -207,6 +207,7 @@ void Window::KeyBoard(){
 					//fire_enabled = true;
 					player_one.ActivateBullet();
 					al_stop_timer(player_fire_timer->GetClock());
+
 				}
 
 
@@ -215,7 +216,7 @@ void Window::KeyBoard(){
 					if(player_one.GetPlayerAmmo() < 5){
 
 						if(player_one.GetFireStatus() == true){
-
+							game.PlayPlayerLaser();
 							player_one.AddPlayerAmmo();
 							player_one.AmmoVectorStorage(player_one.GetPlayerAmmo(),false);
 
