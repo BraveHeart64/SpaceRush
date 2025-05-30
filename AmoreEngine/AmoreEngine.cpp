@@ -42,6 +42,7 @@ Window::Window(char* t){
 			en->SetPosX(i*50);
 			en_ship.push_back(en);
 
+
 	}
 
 	al_get_display_event_source(window);

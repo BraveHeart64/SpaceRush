@@ -125,7 +125,7 @@ bool AmoreGame::PlayerBodyCollision(Player& p, std::vector<EnemyShip*>& en){
 
 
 	}
-
+	return false;
 }
 
 bool AmoreGame::OverLapping(float min_one,float max_one, float min_two, float max_two ){
@@ -231,6 +231,7 @@ int AmoreGame::GameState(Player p,std::vector<EnemyShip*> en,float delta){
 				al_draw_text(ft,al_map_rgb(255,255,255),245,0,ALLEGRO_ALIGN_CENTER,"PitchBlack");
 				al_draw_text(ft,al_map_rgb(255,255,255),245,50,ALLEGRO_ALIGN_CENTER,"Press q to quit the game!");
 				al_draw_text(ft,al_map_rgb(255,255,255),245,90,ALLEGRO_ALIGN_CENTER,"Press Any key to Start the game!");
+
 				en[0]->ActivateShip(false);
 				en[1]->ActivateShip(false);
 				en[2]->ActivateShip(false);
